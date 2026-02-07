@@ -1,0 +1,38 @@
+#version 460 core
+
+layout (local_size_x = 32, local_size_y = 32, local_size_z = 1) in;
+
+#include "DataTypes.glsl"
+
+#include "UniformsAndBuffers.glsl"
+
+#include "TracingFunctions.glsl"
+
+void main() {
+
+	ivec2 texelCoordinates = ivec2(gl_GlobalInvocationID.xy);
+
+	if(texelCoordinates.x >= resolution.x) {
+		return;
+	}
+	if(texelCoordinates.y >= resolution.y) {
+		return;
+	}
+
+
+	vec4 colorValue = vec4(0.0, 0.0, 0.0, 1.0);
+
+	Ray ray = RayFromScreenPosition(vec2(texelCoordinates));
+
+	colorValue.xyz = ray.direction.xyz;
+
+	RayHitInfo rayHitInfo = RayWorld(ray);
+
+	if (rayHitInfo.hit) {
+		colorValue.xyz = rayHitInfo.point.xyz;
+	}
+
+	colorValue.xyz = rayHitInfo.color;
+
+	imageStore(colorTexture, texelCoordinates, colorValue);
+}

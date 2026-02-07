@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{ef757958-f646-42de-9495-3dfbb838c8d7}</ProjectGuid>
+    <RootNamespace>BVHVoxels</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>C:\Users\Jack\source\libs\glfw-3.4.bin.WIN64\lib-vc2022;C:\Users\Jack\source\libs\steamworks_sdk_160\sdk\redistributable_bin\win64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>C:\Users\Jack\source\libs\glfw-3.4.bin.WIN64\lib-vc2022;C:\Users\Jack\source\libs\steamworks_sdk_160\sdk\redistributable_bin\win64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdclatest</LanguageStandard_C>
+      <AdditionalIncludeDirectories>C:\Users\Jack\source\libs\glad\include;C:\Users\Jack\source\libs\glfw-3.4.bin.WIN64\include;C:\Users\Jack\source\libs\glm-1.0.1-light;C:\Users\Jack\source\libs\steamworks_sdk_160\sdk\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdclatest</LanguageStandard_C>
+      <AdditionalIncludeDirectories>C:\Users\Jack\source\libs\glad\include;C:\Users\Jack\source\libs\glfw-3.4.bin.WIN64\include;C:\Users\Jack\source\libs\glm-1.0.1-light;C:\Users\Jack\source\libs\steamworks_sdk_160\sdk\public;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="BobAndSpin.cpp" />
+    <ClCompile Include="BVH.cpp" />
+    <ClCompile Include="BVHTree.cpp" />
+    <ClCompile Include="BVNode.cpp" />
+    <ClCompile Include="BaseComponent.cpp" />
+    <ClCompile Include="BVHVoxels.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="EngineVariables.cpp" />
+    <ClCompile Include="ExecutionOrderHandler.cpp" />
+    <ClCompile Include="FileSystemHandler.cpp" />
+    <ClCompile Include="GameHandler.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameTimeHandler.cpp" />
+    <ClCompile Include="glad.c" />
+    <ClCompile Include="GLFWHandler.cpp" />
+    <ClCompile Include="GraphicsHandler.cpp" />
+    <ClCompile Include="HelperFunctions.cpp" />
+    <ClCompile Include="InputHandler.cpp" />
+    <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="MouseLook.cpp" />
+    <ClCompile Include="Movement.cpp" />
+    <ClCompile Include="Program.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneBuilder.cpp" />
+    <ClCompile Include="SpanVector.cpp" />
+    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="VoxelData.cpp" />
+    <ClCompile Include="VoxelObject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BobAndSpin.h" />
+    <ClInclude Include="BVH.h" />
+    <ClInclude Include="BVHTree.h" />
+    <ClInclude Include="BVNode.h" />
+    <ClInclude Include="BaseComponent.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="EngineVariables.h" />
+    <ClInclude Include="ExecutionOrderHandler.h" />
+    <ClInclude Include="FileSystemHandler.h" />
+    <ClInclude Include="GameHandler.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameTimeHandler.h" />
+    <ClInclude Include="GLFWHandler.h" />
+    <ClInclude Include="GraphicsHandler.h" />
+    <ClInclude Include="HelperFunctions.h" />
+    <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="Logger.h" />
+    <ClInclude Include="MouseLook.h" />
+    <ClInclude Include="Movement.h" />
+    <ClInclude Include="Program.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneBuilder.h" />
+    <ClInclude Include="SpanVector.h" />
+    <ClInclude Include="ThreadSafeQueue.h" />
+    <ClInclude Include="Transform.h" />
+    <ClInclude Include="VoxelData.h" />
+    <ClInclude Include="VoxelObject.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

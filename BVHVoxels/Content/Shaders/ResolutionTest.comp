@@ -1,0 +1,29 @@
+#version 460 core
+
+layout (local_size_x = 32, local_size_y = 32, local_size_z = 1) in;
+
+layout(rgba8, binding = 0) uniform image2D colorTexture;
+
+uniform ivec2 resolution;
+uniform float resolution_aspect_ratio;
+uniform float window_aspect_ratio;
+
+void main() {
+	vec4 value = vec4(0.0, 0.0, 0.0, 1.0);
+	ivec2 texelCoord = ivec2(gl_GlobalInvocationID.xy);
+	ivec2 edge = ivec2(texelCoord%gl_WorkGroupSize.xy)-30;
+	value.z = max(max(edge.x, edge.y), 0);
+	edge = texelCoord-resolution+2;
+	value.y = max(max(edge.x, edge.y), 0);
+
+	ivec2 aspectCorrectedCoord = ivec2(texelCoord.x/resolution_aspect_ratio*window_aspect_ratio,texelCoord.y);
+
+	edge = ivec2(aspectCorrectedCoord%gl_WorkGroupSize.xy)-28;
+	value.x = max(max(edge.x, edge.y), 0);
+
+
+	edge = 2-abs(texelCoord*2-resolution+1);
+	value.y = max(value.y,max(max(edge.x, edge.y), 0));
+
+	imageStore(colorTexture, texelCoord, value);
+}
