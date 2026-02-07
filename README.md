@@ -1,4 +1,4 @@
-# DynamicBVH-Raytracing-Engine
+# Dynamic BVH Raytracing Engine
 
 [YouTube Demo](https://youtu.be/LH8GmG5m9KE)
 
